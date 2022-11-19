@@ -2,7 +2,7 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DevSecOpsSamples_gke-python-api&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=DevSecOpsSamples_gke-python-api) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=DevSecOpsSamples_gke-python-api&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=DevSecOpsSamples_gke-python-api)
 
-The sample project to deploy Python REST API application, Service, HorizontalPodAutoscaler, Ingress, and GKE BackendConfig on GKE.
+The sample project to deploy Python REST API application, Service, HorizontalPodAutoscaler, Ingress, and BackendConfig on GKE.
 
 - [app.py](app/app.py)
 - [python-ping-api-template.yaml](app/python-ping-api-template.yaml)
@@ -97,6 +97,8 @@ curl http://${LB_IP_ADDRESS}/ping
 }
 ```
 
+---
+
 ## Screenshots
 
 - Loadbalncer
@@ -106,6 +108,8 @@ curl http://${LB_IP_ADDRESS}/ping
 - Loadbalncer Details
 
 ![loadbalancer-details](./screenshots/loadbalancer-details.png?raw=true)
+
+---
 
 ## Cleanup
 
