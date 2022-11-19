@@ -4,6 +4,11 @@
 
 The sample project to deploy Python REST API application, Service, HorizontalPodAutoscaler, Ingress, and GKE BackendConfig on GKE.
 
+- [app.py](app/app.py)
+- [python-ping-api-template.yaml](app/python-ping-api-template.yaml)
+
+---
+
 ## Prerequisites
 
 ### Installation
@@ -51,7 +56,7 @@ gcloud auth configure-docker
 docker push gcr.io/${PROJECT_ID}/python-ping-api:latest
 ```
 
-Create and deploy K8s Deployment, Service, HorizontalPodAutoscaler, Ingress, and GKE BackendConfig using the [python-ping-api.yaml](app/python-ping-api.yaml) template file.
+Create and deploy K8s Deployment, Service, HorizontalPodAutoscaler, Ingress, and GKE BackendConfig using the [python-ping-api-template.yaml](app/python-ping-api-template.yaml) template file.
 
 ```bash
 sed -e "s|<project-id>|${PROJECT_ID}|g" python-ping-api-template.yaml > python-ping-api.yaml
@@ -68,6 +73,8 @@ Confirm that pod configuration and logs after deployment:
 kubectl logs -l app=python-ping-api
 
 kubectl describe pods
+
+kubectl get ingress python-ping-api-ingress
 ```
 
 Confirm that response of `/ping` API.
@@ -111,3 +118,5 @@ gcloud container clusters delete sample-cluster
 ## References
 
 - [Cloud SDK > Documentation > Reference > gcloud container clusters](https://cloud.google.com/sdk/gcloud/reference/container/clusters)
+
+- [Google Kubernetes Engine (GKE) > Documentation > Guides > GKE Ingress for HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress)
