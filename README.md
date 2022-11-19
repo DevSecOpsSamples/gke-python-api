@@ -80,6 +80,16 @@ curl http://${LB_IP_ADDRESS}/ping
 }
 ```
 
+## Screenshots
+
+- Loadbalncer
+
+![loadbalancer](./screenshots/loadbalancer.png?raw=true)
+
+- Loadbalncer Details
+
+![loadbalancer-details](./screenshots/loadbalancer-details.png?raw=true)
+
 ## Cleanup
 
 ```bash

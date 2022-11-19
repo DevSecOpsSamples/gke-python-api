@@ -46,7 +46,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: "python-ping-api-ingress"
-
   annotations:
     app: 'python-ping-api'
     kubernetes.io/ingress.class: gce
