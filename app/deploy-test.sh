@@ -12,4 +12,4 @@ docker push gcr.io/${PROJECT_ID}/python-ping-api:latest
 kubectl scale deployment python-ping-api --replicas=0
 kubectl scale deployment python-ping-api --replicas=3
 sleep 3
-kubectl get pods -n
+kubectl get pods
