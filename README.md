@@ -43,25 +43,54 @@ gcloud auth configure-docker
 docker push gcr.io/${PROJECT_ID}/python-ping-api:latest
 ```
 
-Create and deploy K8s Deployment, Service, HorizontalPodAutoscaler, Ingress, and GKE BackendConfig using a template file.
+Create and deploy K8s Deployment, Service, HorizontalPodAutoscaler, Ingress, and GKE BackendConfig using the [python-ping-api.yaml](app/python-ping-api.yaml) template file.
 
 ```bash
 sed -e "s|<project-id>|${PROJECT_ID}|g" python-ping-api-template.yaml > python-ping-api.yaml
 cat python-ping-api.yaml
 
-kubectl apply -f python-ping-api.yaml -n python-ping-api
+kubectl apply -f python-ping-api.yaml
 ```
 
 Confirm that pod configuration and logs after deployment:
 
 ```bash
-kubectl describe pods -n python-ping-api
-kubectl logs -l app=python-ping-api -n python-ping-api
+kubectl logs -l app=python-ping-api
+
+kubectl describe pods
 ```
 
-Confirm that response of `/ping` API.
+Confirm that response of `/ping` API. Until creation of load balancer including health checking, it may take around 5 minutes.
 
 ```bash
 LB_IP_ADDRESS=$(gcloud compute forwarding-rules list | grep python-ping-api | awk '{ print $2 }')
 echo ${LB_IP_ADDRESS}
 ```
+
+```bash
+curl http://${LB_IP_ADDRESS}/ping
+```
+
+```json
+{
+  "host": "<your-ingress-endpoint-ip>",
+  "message": "ping-api",
+  "method": "GET",
+  "url": "http://<your-ingress-endpoint-ip>/ping"
+}
+```
+
+## Cleanup
+
+```bash
+kubectl delete -f app/python-ping-api.yaml
+```
+
+```bash
+
+```
+
+
+
+
+https://cloud.google.com/sdk/gcloud/reference/container/clusters

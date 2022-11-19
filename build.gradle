@@ -22,6 +22,5 @@ sonarqube {
         property "sonar.issue.ignore.multicriteria.e1.ruleKey", "typescript:S1848"
         property "sonar.issue.ignore.multicriteria.e1.resourceKey", "**/*.ts"
         property "sonar.links.ci", "https://github.com/DevSecOpsSamples/gke-python-api"
-        property "sonar.log.level", "DEBUG"
     }
 }

@@ -21,9 +21,7 @@ build
 service-account.json
 
 # k8s
-bucket-api.yaml
-pubsub-api.yaml
-
+python-ping-api.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
