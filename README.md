@@ -1,6 +1,6 @@
-# Python sample application for GKE
+# Python sample project for GKE
 
-Python sample application project to deploy REST API application, Service, HorizontalPodAutoscaler, Ingress, and GKE BackendConfig on GKE.
+The sample project to deploy Python REST API application, Service, HorizontalPodAutoscaler, Ingress, and GKE BackendConfig on GKE.
 
 ## Prerequisites
 
